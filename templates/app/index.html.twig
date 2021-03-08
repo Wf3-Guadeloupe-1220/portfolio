@@ -2,9 +2,44 @@
 
 {% block title %}Hello AppController!{% endblock %}
 
-{% block body %}
-<div class="">
-    <h1>Hello ! ✅ </h1>
-
-</div>
+{% block header %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-auto"><span class="fa fa-user-circle fa-5x"></span></div>
+                    <div class="col">
+                        <h1>Jean-Luc DELARU</h1>
+                        <p>22ans, développeur web en puissance</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
 {% endblock %}
+{% block body %}
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+                <p><b>Présentation ….…</b><br>
+                    ipsum</p>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <h2>J'ai sérieusement bossé sur</h2>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+{#        {% include('project/_list.html.twig') %}#}
+        {{  render(path('projectList')) }}
+    </div>
+{% endblock %}
+

@@ -1,0 +1,16 @@
+<div class="row">
+    {% for project in projectList %}
+        <div class="col-12 col-md-4">
+            <div class="card">
+                <img src="{{ asset('uploads/' ~ project.photos[0]) }}" class="card-img-top" alt="">
+                <div class="card-body">
+                    <a class="btn btn-link text-dark" href="{{ path('projectDetail', {id: project.id}) }}"><h4 class="card-title">{{ project.title }}</h4></a>
+                    <p class="card-text">{{ project.description|u.truncate(45,'...',true) }}</p>
+                    <span>{{ project.duration.d }} Jours</span>
+                    <br>
+                    {% include('/project/_technologies.html.twig') %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

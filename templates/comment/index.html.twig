@@ -1,0 +1,44 @@
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col">
+            <h4>Je suis curieux de lire vos avis sur ce projet</h4>
+        </div>
+    </div>
+</div>
+<div class="container">
+   {% if commentList.count > 0 %}
+    {% for comment in commentList %}
+        <div class="row d-flex">
+            <div class="col-auto {{ (loop.index % 2 == 0 ) ? 'justify-items-end': '' }}">
+                <p class="p-3 rounded {{ (loop.index % 2 == 0 ) ? 'bg-info': 'bg-warning' }}"> {{ comment.message }}
+                    <br>
+                    <span class="pull-right">{{ comment.visiteur.username }}</span>
+                </p>
+            </div>
+        </div>
+    {% endfor %}
+    {% else %}
+       <div class="alert alert-warning">Pas de commentaire pour le moment. Soyez le premier à laisser votre avis !</div>
+    {% endif %}
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col d-flex justify-content-end align-items-center">
+            <p class="text-right">Vous aussi, laissez-moi votre avis en commentaire.</p>
+        </div>
+        <div class="col">
+            {{ form_start(form) }}
+                {{ form_row(form.pseudo) }}
+                {{ form_row(form.email) }}
+                <div class="form-row">
+                    <div class="col">
+                        {{ form_row(form.message) }}
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn h-100 btn-success btn-lg">Envoyer</button>
+                    </div>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>

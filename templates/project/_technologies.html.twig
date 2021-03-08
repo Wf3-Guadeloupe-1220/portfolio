@@ -1,0 +1,3 @@
+{% for techno in project.technologies %}
+    <span class="badge badge-{{ project.color(techno) }}">{{ techno }}</span>
+{% endfor %}
