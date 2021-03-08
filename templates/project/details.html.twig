@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ project.title }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <h1> {{ project.title }}! ✅</h1>
+                <p>{{ project.description }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                Carousel image
+            </div>
+            <div class="col">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><b>Technologies utilisées:</b> {% include('/project/_technologies.html.twig') %}
+                    </li>
+                    <li class="list-group-item"><b>Durée:</b> {{ project.duration.d }} Jours</li>
+                    <li class="list-group-item"><b>Où trouver ce projet ?</b> <a class="btn btn-outline-info" href="{{ project.url }}">Voir le projet</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {{ render(path('comments', {project_id:project.id})) }}
+{% endblock %}
